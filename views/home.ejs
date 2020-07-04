@@ -1,0 +1,20 @@
+<%- include ("./partials/header.ejs") %>
+<div class="container mt-5">
+  <h1 class="display-4 mb-4">All Posts</h1>
+
+  <% posts.forEach(post=>{ %>
+
+  <div class="card mb-2" style="width: 100%;">
+    <div class="card-body">
+      <h5 class="card-title"><%= post.title %></h5>
+      <p class="card-text"><%= post.body.substring(0, 100) %>...</p>
+      <p class="mb-3 text-muted">
+        Posted at <%= post.date.toLocaleDateString() %>
+      </p>
+      <a href="/post/<%= post._id %>" class="btn btn-primary">Read more</a>
+    </div>
+  </div>
+
+  <% }) %>
+</div>
+<%- include ("./partials/footer.ejs") %>
